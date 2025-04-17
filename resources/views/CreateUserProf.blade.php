@@ -15,7 +15,7 @@
         <form action="/" method="POST">
         <img src="img/Character.png" alt="Profile Image" id="profile-img">
 
-        <label for="Name">Your name</label>
+        <label for="Name">Seu Nome</label> 
         <input type="text" v-model="name">
 
         <label for="age">Idade</label>
@@ -27,30 +27,31 @@
         <label for="Password">Sua Senha</label>
         <input type="password" v-model="password" placeholder="Enter your password">
 
-        <h3>Your gender:</h3>
-        <label><input type="radio" v-model="gender" value="Male"> Male</label><br>
-        <label><input type="radio" v-model="gender" value="Female"> Female</label><br>
+        <label for="Gender">Seu genero</label>
+        <label><input type="radio" v-model="gender" value="Male"> Masculino</label><br>
+        <label><input type="radio" v-model="gender" value="Female"> Feminino</label><br>
 
-        <h3>Change Profile Image:</h3>
-        <input type="text" v-model="image" placeholder="Paste image URL here">
+            <label for="Image">Selecione sua imagem</label>
+        <input type="file" v-model="image">
 
-        <h3>Your Bio:</h3>
-        <textarea v-model="bio" maxlength="150" placeholder="Write something about yourself..."></textarea>
+        <label for="Bio">Sua Bio</label>
+        <textarea v-model="bio" maxlength="150" placeholder="Nos conte mais sobre você"></textarea>
         {{-- <p>Characters remaining: {{ remainingChars }}</p> --}}
 
-        <h3>Your Function:</h3>
-        <label><input type="radio" v-model="adm" value="ADM">ADM</label><br>
-        <label><input type="radio" v-model="adm" value="NormalUser">Normal User</label><br>
+       <label for="Work">Qual o seu trabalho?</label>  {{-- trabalho escravo kkkkkk --}}
+        <label><input type="radio" v-model="adm" value="ADM">ADM</label>
+        <label><input type="radio" v-model="adm" value="NormalUser">Normal User</label>
 
         <!-- Campo de senha para admins -->
-        <div v-if="adm === 'ADM'">
+        {{-- @if ($admin == 1)
+        <div class="Admin-Stage">
             <h3>Admin Password:</h3>
             <input type="password" v-model="adminPassword" placeholder="Enter admin password">
         </div>
+        @endif --}}
+        
 
-        <br>
-
-        <button id="submit">Submit and Save</button>
+        <input type="submit" value="Enviar">
 
     </form>
 
@@ -63,6 +64,7 @@
 
 
         <button id="dark-mode-button">
+            Dark Mode
             {{-- {{ darkMode ? 'Light Mode' : 'Dark Mode' }} --}}
         </button>
     </div>

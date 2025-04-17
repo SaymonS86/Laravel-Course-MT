@@ -28,20 +28,22 @@
                         <a href="/" class="navbar-brand">
                         <img src="/img/logoS.png" alt="home-icon">
                         </a>
+                        <h1 id="Welcome">Bem vindo a quikiMoveis</h1>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a href="/" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/" class="nav-link">Portifolio</a>
+                                <a href="/" class="nav-link">Create Events</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/" class="nav-link">Contatos</a>
+                                <a href="/" class="nav-link">Login and Register</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </header>
+
 
             @yield('content')
            <footer>
