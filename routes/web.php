@@ -13,6 +13,10 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 // criação de eventos
 Route::get('/', [EventController::class, 'index']);
+Route::get('/createUser', function() {
+
+   return view('CreateUserProf');
+});
 
 Route::get('/events', [EventController::class, 'event']);
 Route::post('/events', [EventController::class, 'store']);

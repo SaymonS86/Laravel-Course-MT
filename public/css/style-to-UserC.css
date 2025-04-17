@@ -1,0 +1,35 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+#profile-img{
+    border-radius: 50%;
+    width: 150px;
+}
+
+#bio-message{
+  height: 80px;
+  width: auto;
+}
+
+#submit{
+    height: 43px;
+    width: 80px;
+    background-color: #0586ff;
+    border: none;
+    border-radius: 5%;
+    color: aliceblue;
+}
+
+#submit:hover{
+    background-color: #0478e4;
+}
+#dark-mode-button{
+    cursor: pointer;
+}
