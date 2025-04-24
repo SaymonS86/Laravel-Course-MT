@@ -13,9 +13,9 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 // criação de eventos
 Route::get('/', [EventController::class, 'index']);
-Route::get('/createUser', function() {
-
-   return view('CreateUserProf');
+// Route::get('/createUser', [EventController::class, 'dataBase']);
+Route::get('/createUser', function (){
+   return view('CreateUserProf'); 
 });
 
 Route::get('/events', [EventController::class, 'event']);

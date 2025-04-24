@@ -43,4 +43,26 @@ class EventController extends Controller
     
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
+
+    public function dataBase(Request $req)
+    {
+    
+        $event = new Event;
+        $event->name = $req->name;
+        $event->password = $req->password;
+        $event->email = $req->email;
+        $event->age = $req->age;
+    
+        if ($req->hasFile('image') && $req->file('image')->isValid()) {
+            $reqImage = $req->file('image');
+            $extension = $reqImage->extension();
+            $imageName = md5($reqImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $reqImage->move(public_path('img/events'), $imageName);
+            $event->image = $imageName;
+        }
+    
+        $event->save();
+    
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    }
 }

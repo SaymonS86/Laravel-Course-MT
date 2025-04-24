@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="css/style-to-UserC.css">
     <link id="theme-stylesheet" rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <div id="login-app">
-        <h2>Your Login:</h2>
+        <div class="body-form">
+            <button id="dark-mode-button" class="fa fa-moon-o">
 
-        <h3>Your Image of Your Profile:</h3>
-        <form action="/" method="POST">
-        <img src="img/Character.png" alt="Profile Image" id="profile-img">
+                {{-- {{ darkMode ? 'Light Mode' : 'Dark Mode' }} --}}
+            </button>
+            <form action="/" method="POST">
+                <label for="inputArquivo">
+                    <img src="img/Character.png" alt="Profile Image" id="profile-img">
+                </label>
+                <input type="file" name="arquivo" id="inputArquivo" class="inputArquivo">
 
-        <label for="Name">Seu Nome</label> 
-        <input type="text" v-model="name">
+                <label for="name">Seu Nome</label>
+                <input type="text" name="name" id="name" placeholder="Qual o seu nome?">
 
-        <label for="age">Idade</label>
-        <input type="text" v-model="age">
+                <label for="age">Idade</label>
+                <input type="text" name="age" id="age" class="age" placeholder="Me fale sua idade">
 
-        <label for="Email">Seu Email</label>
-        <input type="email" v-model="email">
+                <label for="email">Seu Email</label>
+                <input type="email" name="email" id="email" class="email" placeholder="Digite seu Email">
 
-        <label for="Password">Sua Senha</label>
-        <input type="password" v-model="password" placeholder="Enter your password">
+                <label for="password">Sua Senha</label>
+                <input type="password" name="password" id="password" class="password" placeholder="Digite sua senha">
 
-        <label for="Gender">Seu genero</label>
-        <label><input type="radio" v-model="gender" value="Male"> Masculino</label><br>
-        <label><input type="radio" v-model="gender" value="Female"> Feminino</label><br>
+                <label for="gender">Seu genero</label>
+                <div class="change-label">
+                    <select name="gender" id="gender" class="from-control">
+                        <option value="0">Feminino</option>
+                        <option value="1">Masculino</option>
+                    </select>
+                </div>
+                <label for="Bio">Sua Bio</label>
+                <textarea name="bio" maxlength="150" id="bio" class="bio" placeholder="Nos conte mais sobre você"></textarea>
+                {{-- <p>Characters remaining: {{ remainingChars }}</p> --}}
 
-            <label for="Image">Selecione sua imagem</label>
-        <input type="file" v-model="image">
-
-        <label for="Bio">Sua Bio</label>
-        <textarea v-model="bio" maxlength="150" placeholder="Nos conte mais sobre você"></textarea>
-        {{-- <p>Characters remaining: {{ remainingChars }}</p> --}}
-
-       <label for="Work">Qual o seu trabalho?</label>  {{-- trabalho escravo kkkkkk --}}
-        <label><input type="radio" v-model="adm" value="ADM">ADM</label>
-        <label><input type="radio" v-model="adm" value="NormalUser">Normal User</label>
-
-        <!-- Campo de senha para admins -->
-        {{-- @if ($admin == 1)
+                <label for="type-user">Você é um ADM?</label> {{-- trabalho escravo kkkkkk --}}
+                <div class="change-label">
+                    <select name="user" id="user" class="from-control">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
+                <!-- Campo de senha para admins -->
+                {{-- @if ($admin == 1)
         <div class="Admin-Stage">
             <h3>Admin Password:</h3>
             <input type="password" v-model="adminPassword" placeholder="Enter admin password">
         </div>
         @endif --}}
-        
 
-        <input type="submit" value="Enviar">
-
-    </form>
-
+                <div class="button-submit">
+                <input type="submit" value="Enviar">
+            </div>
+            </form>
+        </div>
         {{-- <h3>Summary:</h3>
         <p>Name: {{ name }}</p>
         <p>Age: {{ age }}</p>
@@ -63,10 +74,8 @@
         <p>Bio: {{ bio }}</p> --}}
 
 
-        <button id="dark-mode-button">
-            Dark Mode
-            {{-- {{ darkMode ? 'Light Mode' : 'Dark Mode' }} --}}
-        </button>
+
     </div>
 </body>
+
 </html>
