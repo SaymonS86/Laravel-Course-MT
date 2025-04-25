@@ -24,6 +24,8 @@
 footer{
     text-align: center;
     font-family: "Special Gothic Expanded One", sans-serif;
+    margin-top: 20px;
+    
 }
 
 #navbar ul{
@@ -41,6 +43,7 @@ footer{
     gap: 3em;
     justify-content: end;
 }
+
 
 #search{
     display: block;
@@ -86,4 +89,59 @@ display: inline-block;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+#event-create-conatiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 390px;
+    height: 460px;
+    margin-left: 500px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#Create-event-title{
+    font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+#submit-create-event{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.form-group input[type="text"]{
+    border-radius: 5px;
+}
+
+.form-group textarea{
+    border-radius: 5px;
+    height: 130px;
+}
+
+.btn-primary{
+  
+    width: 100px;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: #0617ffd5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    background-color: #060e7cd5;
+    
+
 }
