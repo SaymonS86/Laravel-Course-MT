@@ -30,8 +30,10 @@ class EventController extends Controller
         $event = new Event;
         $event->city = $req->city;
         $event->title = $req->title;
+        $event->date = $req->date;
         $event->private = $req->private;
         $event->description = $req->description;
+        $event->items = $req->items;
     
         if ($req->hasFile('image') && $req->file('image')->isValid()) {
             $reqImage = $req->file('image');
@@ -46,25 +48,32 @@ class EventController extends Controller
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
-    public function dataBase(Request $req)
-    {
+    // public function dataBase(Request $req)
+    // {
     
-        $event = new Event;
-        $event->name = $req->name;
-        $event->password = $req->password;
-        $event->email = $req->email;
-        $event->age = $req->age;
+    //     $event = new Event;
+    //     $event->name = $req->name;
+    //     $event->password = $req->password;
+    //     $event->email = $req->email;
+    //     $event->age = $req->age;
     
-        if ($req->hasFile('image') && $req->file('image')->isValid()) {
-            $reqImage = $req->file('image');
-            $extension = $reqImage->extension();
-            $imageName = md5($reqImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $reqImage->move(public_path('img/events'), $imageName);
-            $event->image = $imageName;
-        }
+    //     if ($req->hasFile('image') && $req->file('image')->isValid()) {
+    //         $reqImage = $req->file('image');
+    //         $extension = $reqImage->extension();
+    //         $imageName = md5($reqImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+    //         $reqImage->move(public_path('img/events'), $imageName);
+    //         $event->image = $imageName;
+    //     }
     
-        $event->save();
+    //     $event->save();
     
-        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    //     return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    // }
+
+
+    public function show($id){
+    $event = Event::findOrFail($id);
+    
+    return view('events/show',['event' => $event]);
     }
 }

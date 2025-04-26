@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="css/style-to-UserC.css">
-    <link id="theme-stylesheet" rel="stylesheet" href="dark-mode.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="css/style-to-UserC.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div id="login-app">
+
+
+
         <div class="body-form">
             <button id="dark-mode-button" class="fa fa-moon-o">
 
@@ -61,11 +66,13 @@
         </div>
         @endif --}}
 
-                <div class="button-submit">
+            <div id="submit-button">
                 <input type="submit" value="Enviar">
+
             </div>
-            </form>
+                
         </div>
+            </form>
         {{-- <h3>Summary:</h3>
         <p>Name: {{ name }}</p>
         <p>Age: {{ age }}</p>
@@ -76,6 +83,24 @@
 
 
     </div>
+<script>
+    document.getElementById("dark-mode-button").addEventListener("click", function () {
+    const currentTheme = document.getElementById("theme-stylesheet");
+
+    // Verifica se já está no modo escuro
+    if (currentTheme.getAttribute("href") === "css/style-to-UserC.css") {
+        currentTheme.setAttribute("href", "css/style-dark-modeUserForm.css");
+    } else {
+        currentTheme.setAttribute("href", "css/style-to-UserC.css");
+    }
+});
+
+
+    
+
+
+</script>
+    
 </body>
 
 </html>

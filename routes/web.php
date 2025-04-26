@@ -20,6 +20,7 @@ Route::get('/createUser', function (){
 
 Route::get('/events', [EventController::class, 'event']);
 Route::post('/events', [EventController::class, 'store']);
+Route::get('/events/{id}', [EventController::class, 'show']);
 
 //teste de pesquisa
 

@@ -21,7 +21,7 @@
         @endif
     </head>
     <head>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="/css/style.css">
         <body>
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -44,7 +44,11 @@
                     </div>
                 </nav>
             </header>
-
+            <div>
+                @if (session('msg'))
+                    <p>{{ session('msg') }}</p>
+                @endif
+            </div>
 
             @yield('content')
            <footer>
