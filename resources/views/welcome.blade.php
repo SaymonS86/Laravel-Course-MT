@@ -6,7 +6,9 @@
 
     <div class="conteudo">
         <img src="img/image.png" alt="" id="image-quiki">
-        <input type="text" id="search" name="search" class="form-control">
+        <form action="/" method="GET">
+        <input type="text" id="search" name="search" class="form-control" placeholder="pesquisa">
+        </form>
         <div class="eventos-criados"></div>
         <div id="posts">
 
@@ -30,8 +32,10 @@
                         </div>
                     </div>
                 @endforeach
-                    @if (count($events) == 0)
-                        <p>Não Existem eventos no momento</p>
+                    @if (count($events) == 0 && $search)
+                    <p>não foi possivel encontrar nada com o nome {{$search}}! <a href="/">Veja tudo</a></p>
+                    @elseif(count($events) == 0)
+                    <p>Não Existem eventos no momento</p>   
                     @endif
             </div>
         </div>

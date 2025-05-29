@@ -35,7 +35,7 @@
                                 <a href="/" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/events" class="nav-link">Create Events</a>
+                                <a href="{{ route('events') }}" class="nav-link">Create Events</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/createUser" class="nav-link">Login and Register</a>
