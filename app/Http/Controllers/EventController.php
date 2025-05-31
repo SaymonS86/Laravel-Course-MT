@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 use App\Models\Event;
@@ -16,13 +18,14 @@ class EventController extends Controller
 
         if ($search) {
             $events = Event::where([
-                ['title', 'like', '%' . $search . '%']
+                ['title', 'like', '%' . $search . '%'] 
             ])->get();   
         } else {
             $events = Event::all();
         }
 
     return view('welcome', compact('events', 'search') /*['events' => $events, 'search' => $search]*/);
+    //comapct, forma mais simples de fazer o mesmo comando no laravel.
     }
 
     public function event()  {
@@ -51,6 +54,10 @@ class EventController extends Controller
             $event->image = $imageName;
         }
     
+        $user = auth();
+        $event->user_id = $user->id;
+
+
         $event->save();
     
         return redirect('/')->with('msg', 'Evento criado com sucesso!');

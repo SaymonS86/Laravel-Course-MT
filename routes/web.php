@@ -15,15 +15,15 @@ use Symfony\Contracts\EventDispatcher\Event;
 Route::get('/', [EventController::class, 'index']);
 // Route::get('/createUser', [EventController::class, 'dataBase']);
 
-Route::get('/createUser', function (){
-   return view('CreateUserProf'); 
-})->name('criar'); //Cria um nome para fazer redirects 
+// Route::get('/createUser', function (){
+//    return view('CreateUserProf'); 
+// })->name('criar'); //Cria um nome para fazer redirects 
 
-Route::redirect('/createuser', '/createUser');//o redirects basico
+// Route::redirect('/createuser', '/createUser');//o redirects basico
 
-Route::get('/criarUsuario', function() {
-   return redirect()->route('criar');
-});// maneira mais completa de fazer um redirect completo.
+// Route::get('/criarUsuario', function() {
+//    return redirect()->route('criar');
+// });// maneira mais completa de fazer um redirect completo.
 
 Route::get('/events', [EventController::class, 'event'])->name('events');
 Route::post('/events', [EventController::class, 'store']);
@@ -80,3 +80,12 @@ Route::get('/pro', function() {
 Route::get('/products_test/{id?}', function($id = null) {
     return view('tests/product', ['id'=> $id]); 
  });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
