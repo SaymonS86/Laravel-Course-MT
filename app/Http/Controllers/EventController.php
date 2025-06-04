@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -54,7 +55,7 @@ class EventController extends Controller
             $event->image = $imageName;
         }
     
-        $user = auth();
+        $user = Auth::user();
         $event->user_id = $user->id;
 
 
@@ -63,32 +64,19 @@ class EventController extends Controller
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
-    // public function dataBase(Request $req)
-    // {
-    
-    //     $event = new Event;
-    //     $event->name = $req->name;
-    //     $event->password = $req->password;
-    //     $event->email = $req->email;
-    //     $event->age = $req->age;
-    
-    //     if ($req->hasFile('image') && $req->file('image')->isValid()) {
-    //         $reqImage = $req->file('image');
-    //         $extension = $reqImage->extension();
-    //         $imageName = md5($reqImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-    //         $reqImage->move(public_path('img/events'), $imageName);
-    //         $event->image = $imageName;
-    //     }
-    
-    //     $event->save();
-    
-    //     return redirect('/')->with('msg', 'Evento criado com sucesso!');
-    // }
-
-
     public function show($id){
     $event = Event::findOrFail($id);
+
+    $eventOwner = User::where('id', $event->user_id)->first()->toArray();
     
-    return view('events/show',['event' => $event]);
+    return view('events/show',compact('event', 'eventOwner'));
+    }
+
+    public function dashboard() {
+        $user = Auth::user();
+
+        $events = $user->events;
+
+        return view('events/dashboard', compact('events'));
     }
 }
