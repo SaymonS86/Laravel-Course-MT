@@ -12,7 +12,7 @@
             <div class="form-group">
                 <h1 id="Create-event-title">Crie seu evento:</h1>
                 <label for="title">Evento:</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Nome do Enevnto a criar">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Nome do Evento a criar">
 
             </div>
             <div class="form-group">
@@ -28,11 +28,11 @@
             <div class="form-group">
                 <label for="title">Cidade:</label>
                 <input type="text" class="form-control" id="city" name="city"
-                    placeholder="Nome do Enevnto a criar">
+                    placeholder="Nome do Evento a criar">
 
             </div>
             <div class="form-group">
-                <label for="title">O event e privado ?:</label>
+                <label for="title">O evento é privado?:</label>
                 <select name="private" id="private" class="from-control">
                     <option value="0">Não</option>
                     <option value="1">Sim</option>

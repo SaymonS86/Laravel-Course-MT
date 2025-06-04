@@ -52,10 +52,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function events() {
-        return $this->hasMany('App\Model\Event');
-    }
-
     /**
      * Get the attributes that should be cast.
      *
