@@ -16,10 +16,11 @@ use Symfony\Contracts\EventDispatcher\Event;
 // criação de eventos
 Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/events', [EventController::class, 'event'])->middleware('auth')->name('events');
-Route::post('/events', [EventController::class, 'store']);
-
-
 Route::get('/events/{id}', [EventController::class, 'show'])->name('store.sowItem');
+Route::post('/events', [EventController::class, 'store']);
+Route::delete('/events/{id}',[EventController::class, 'destroy'])->middleware('auth')->name('event.destruct');
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth')->name('event.edit');
+
 
 Route::get('/usuario', function (){
    return redirect('login');});
@@ -28,7 +29,7 @@ Route::get('/products_test/{id?}', function($id = null) {
     return view('tests/product', ['id'=> $id]); 
  });
 
- Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+ Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth')->name('user.dashboard');
 
 
 
