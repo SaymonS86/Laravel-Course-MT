@@ -74,7 +74,7 @@
 
     @yield('content')
     <footer>
-        <p>Quiki-Series &copy; 2025</p>
+        <p id="copyright">Quiki-Bekn &copy; 2025</p>
     </footer>
 </body>
 </head>
