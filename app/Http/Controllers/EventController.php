@@ -93,4 +93,12 @@ class EventController extends Controller
 
         return view('events/edit', compact('event'));
     }
+
+    public function update(Request $req) {
+        
+        Event::findOrFail($req->id)->update($req->all());
+
+        return redirect(route('user.dashboard'))->with('msg','Evento excluído com sucesso!');
+
+    }
 }

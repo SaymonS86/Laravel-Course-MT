@@ -20,6 +20,7 @@ Route::get('/events/{id}', [EventController::class, 'show'])->name('store.sowIte
 Route::post('/events', [EventController::class, 'store']);
 Route::delete('/events/{id}',[EventController::class, 'destroy'])->middleware('auth')->name('event.destruct');
 Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth')->name('event.edit');
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth')->name('event.update');;
 
 
 Route::get('/usuario', function (){
