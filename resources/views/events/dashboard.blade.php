@@ -6,7 +6,7 @@
 
     <div class="title">
         <h1>
-            Dshborad
+            Dashboard
         </h1>
         <div class="content">
             @if (count($events) > 0)
@@ -25,7 +25,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
-                                <td>0</td>
+                                <td>{{ count($event->users) }}</td>
                                 <td>
                                     <a class="btn btn-info edit-btn" href="{{ route('event.edit', ['id' => $event->id]) }}"><ion-icon name="create-outline"></ion-icon> Editar</a>
                                     <form action="{{ route('event.destruct', ['id' => $event->id]) }}" method="POST">
@@ -41,6 +41,39 @@
             @else
                 <p>você ainda não tem eventos, <a href="/events">Criar Evento</a></p>
             @endif
+            <div class="title">
+                <h1>
+                    Eventos que estou participando
+                </h1>
+            </div>
+            <div class="content">
+            @if ( count($eventsAsParticipants) > 0)
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($eventsAsParticipants as $event)
+                        <tr>
+                            <th scope="row">{{ $loop->index + 1 }}</th>
+                            <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
+                            <td>{{ count($event->users) }}</td>
+                            <td>
+                                <a href="#">Sair do evento</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @else
+                <p>você ainda não está em nenhum evento, <a href="{{ route('home') }}">veja todos os eventos</a> </p>
+            @endif    
+            </div>
         </div>
     </div>
 
