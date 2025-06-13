@@ -18,8 +18,10 @@ Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/events', [EventController::class, 'event'])->middleware('auth')->name('events');
 Route::get('/events/{id}', [EventController::class, 'show'])->name('store.sowItem');
 Route::post('/events', [EventController::class, 'store']);
-Route::delete('/events/{id}',[EventController::class, 'destroy'])->middleware('auth')->name('event.destruct');
+Route::delete('/events/delete/{id}',[EventController::class, 'destroy'])->middleware('auth')->name('event.destruct');
 Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth')->name('event.edit');
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth')->name('event.update');
+Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
 
 
 Route::get('/usuario', function (){

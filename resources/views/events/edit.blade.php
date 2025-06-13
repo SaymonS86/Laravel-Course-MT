@@ -55,7 +55,7 @@
 
 
             <div id="submit-create-event">
-                <input type="submit" class="btn-primary" value="Criar Evento">
+                <input type="submit" class="btn-primary" value="Editar Evento">
             </div>
         </form>
     </div>
