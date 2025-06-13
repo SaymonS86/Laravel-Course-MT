@@ -77,9 +77,9 @@
     </div>
 
     @yield('content')
-    {{-- <footer>
+    <footer>
         <p>Quiki-Series &copy; 2025</p>
-    </footer> --}}
+    </footer>
 </body>
 </head>
 

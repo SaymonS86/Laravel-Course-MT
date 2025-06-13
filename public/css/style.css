@@ -9,12 +9,24 @@
     font-family: "Lexend", sans-serif;
  }   
  footer{
-    
-  
     bottom: 0px;
-    background-color: #121213;
-    padding: 2px 90vh;
+    background-color: #3f3f3f;
+    height: 40px;
+    width: 100vw;
+    color: aqua;
+    text-align: center;
+    
+    
  }
+#copyright{
+    font-size: 15px;
+     font-family: "Special Gothic Expanded One", sans-serif;
+     position: relative;
+     top: 10px;
+   
+    
+
+}
 
 #image-quiki{
     width: 100vw;
@@ -32,13 +44,7 @@
 
 }
 
-footer{
-    text-align: center;
-    font-family: "Special Gothic Expanded One", sans-serif;
-    margin-top: 20px;
-    width: 100vw;
-    
-}
+
 
 #navbar ul{
 
@@ -48,6 +54,11 @@ footer{
     position: absolute;
     width: 50px;
     left: 2em;
+}
+
+#navbar a:hover{
+    color: #d0d8df;
+
 }
 
 .navbar-nav{
@@ -93,7 +104,7 @@ display: inline-block;
     padding: 50px;
     margin: auto;
     width: 20em;
-    background-color: #292831;
+    background-color: #353535;
     text-align: center;
     border: solid #212124 2px;
     border-radius: 5px;
