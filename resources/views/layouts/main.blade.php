@@ -35,7 +35,7 @@
                 <h1 id="Welcome">Bem vindo a QuikiMoveis</h1>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
+                        <a href="{{ route('home') }}" class="nav-link">Home</a>
                     </li>
                     @auth
                         <li class="nav-item">
@@ -74,7 +74,7 @@
 
     @yield('content')
     <footer>
-        <p id="copyright">Quiki-Bekn &copy; 2025</p>
+        <p>Quiki-Series &copy; 2025</p>
     </footer>
 </body>
 </head>

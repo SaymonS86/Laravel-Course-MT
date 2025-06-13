@@ -20,7 +20,7 @@
                     <h2>X participantes</h2>
                 </p>
                 <p class="event-city">
-                    <h2>Dono do Evento: X</h2>
+                    <h2>Dono do Evento: {{ $eventOwner['name'] }} </h2>
                 </p>
                 <h3>Evento conta com:</h3>
                 <ul id="items-list">

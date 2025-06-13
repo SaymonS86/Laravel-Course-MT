@@ -4,15 +4,35 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 use function Laravel\Prompts\search;
+use function Livewire\store;
 
 use App\Http\Controllers\EventController;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use FastRoute\Route as FastRouteRoute;
+use GuzzleHttp\Middleware;
 use Symfony\Contracts\EventDispatcher\Event;
 
 
 // criação de eventos
-Route::get('/', [EventController::class, 'index']);
+Route::get('/', [EventController::class, 'index'])->name('home');
+Route::get('/events', [EventController::class, 'event'])->middleware('auth')->name('events');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('store.sowItem');
+Route::post('/events', [EventController::class, 'store']);
+Route::delete('/events/{id}',[EventController::class, 'destroy'])->middleware('auth')->name('event.destruct');
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth')->name('event.edit');
+
+
+Route::get('/usuario', function (){
+   return redirect('login');});
+
+Route::get('/products_test/{id?}', function($id = null) {
+    return view('tests/product', ['id'=> $id]); 
+ });
+
+ Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth')->name('user.dashboard');
+
+
+
 // Route::get('/createUser', [EventController::class, 'dataBase']);
 
 // Route::get('/createUser', function (){
@@ -25,9 +45,6 @@ Route::get('/', [EventController::class, 'index']);
 //    return redirect()->route('criar');
 // });// maneira mais completa de fazer um redirect completo.
 
-Route::get('/events', [EventController::class, 'event'])->name('events');
-Route::post('/events', [EventController::class, 'store']);
-Route::get('/events/{id}', [EventController::class, 'show']);
 
  //maniera normal de criar um group
 
@@ -42,50 +59,35 @@ Route::get('/events/{id}', [EventController::class, 'show']);
 //       return 'logs';
 //    });
 // });
-Route::get('/usuario', function (){
-   return redirect()->route('admin.user');});
 
 //maneira mais versatil e mais eficinete, pois permite adicionar mais opções
 
- Route::group([
+//  Route::group([
 
-   'prefix' => 'admin',
-   'as' => 'admin.'
+//    'prefix' => 'admin',
+//    'as' => 'admin.'
 
- ], function(){
-   Route::get('user', function(){
-      return 'user';
-   })->name('user');
+//  ], function(){
+//    Route::get('user', function(){
+//       return 'user';
+//    })->name('user');
 
-   Route::get('controls', function(){
-      return 'controls';
-   })->name('controls');
+//    Route::get('controls', function(){
+//       return 'controls';
+//    })->name('controls');
 
-   Route::get('logs', function(){
-      return 'logs';
-   })->name('logs');
+//    Route::get('logs', function(){
+//       return 'logs';
+//    })->name('logs');
 
-});
+// });
 
 //teste de pesquisa
 
-Route::get('/pro', function() {
+// Route::get('/pro', function() {
 
-    $search = request('search');
+//     $search = request('search');
 
-   return view('tests/products', ['search' => $search]); 
-});
+//    return view('tests/products', ['search' => $search]); 
+// });
 
-
-Route::get('/products_test/{id?}', function($id = null) {
-    return view('tests/product', ['id'=> $id]); 
- });
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
