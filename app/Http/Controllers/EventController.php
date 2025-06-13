@@ -95,8 +95,15 @@ class EventController extends Controller
 
     }
 
-    public function edit($id) : View {
+    public function edit($id) {
+
+        $user = Auth::user();
+
         $event = Event::findOrFail($id);
+
+        if ($user->id != $event->user_id) {
+            return redirect(route('user.dashboard'));
+        }
 
         return view('events/edit', compact('event'));
     }
@@ -131,6 +138,19 @@ class EventController extends Controller
 
         return redirect(route('user.dashboard'))->with('msg','Sua presença foi confirmada no evento' . $event->title );
         
+    }
+
+    public function leaveEvent($id) : RedirectResponse {
+        
+        $user = Auth::user();
+
+        $event = Event::findOrFail($id);
+        
+        // Adiciona anotação para evitar erro no Intelephense
+        /** @var \App\Models\User $user */
+        $user->eventsAsParticipants()->detach($id);
+
+        return redirect(route('user.dashboard'))->with('msg','Você saiu com sucesso do evento' . $event->title );
     }
 
 }
