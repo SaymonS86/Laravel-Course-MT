@@ -70,9 +70,25 @@ class EventController extends Controller
     public function show($id) : View {
     $event = Event::findOrFail($id);
 
+    $user = Auth::user();
+
+    $hasUserJoined = false;
+
+    if ($user) {
+                 /** @var app\Models\User $user **/
+        $userEvents = $user->eventsAsParticipants()->get();
+
+        foreach ($userEvents as $userEvent) {
+            if ($userEvent['id'] == $id) {
+                $hasUserJoined = true;
+            }
+        }
+
+    };
+
     $eventOwner = User::where('id', $event->user_id)->first()->toArray();
     
-    return view('events/show',compact('event', 'eventOwner'));
+    return view('events/show',compact('event', 'eventOwner', 'hasUserJoined'));
     }
 
     public function dashboard() :View {

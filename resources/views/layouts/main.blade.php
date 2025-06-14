@@ -45,7 +45,6 @@
                            <li class="nav-item">
                             <a href="{{ route('user.dashboard') }}" class="nav-link">Dashboard</a>
                         </li>
-
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                             @csrf

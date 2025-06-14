@@ -31,16 +31,20 @@
                             <li><span>{{ $item }}</span></li>
                         @endforeach
                     </ul>
-                    <form action="/events/join/{{ $event->id }}" method="POST">
-                        @csrf
-                        <a href="" 
-                        class="btn-primary" 
-                        id="event-submit" 
-                        onclick="event.preventDefault();
-                        this.closest('form').submit()">Confirmar
-                            Presença
-                        </a>
-                    </form>
+                  @if (!$hasUserJoined)
+                  <form action="/events/join/{{ $event->id }}" method="POST">
+                    @csrf
+                    <a href="" 
+                    class="btn-primary" 
+                    id="event-submit" 
+                    onclick="event.preventDefault();
+                    this.closest('form').submit()">Confirmar
+                        Presença
+                    </a>
+                </form>
+                  @else
+                      <p class="already-joined"><a href="{{route('user.dashboard')}}"> Você já está neste evento</a></p>
+                  @endif
                 </div>
             </div>
         </div>
