@@ -8,24 +8,71 @@
     color: aliceblue;
     font-family: "Lexend", sans-serif;
  }   
- footer{
-    bottom: 0px;
+ footer {
+    display: flex;
+    justify-content: center;
+    width: 98.8vw;
     background-color: #3f3f3f;
-    height: 40px;
-    width: 100vw;
+    height: 50px;
     color: aqua;
     text-align: center;
-    
-    
- }
-#copyright{
-    font-size: 15px;
-     font-family: "Special Gothic Expanded One", sans-serif;
-     position: relative;
-     top: 10px;
-   
-    
+    align-items: center;
+}
+footer p{
+    font-size: 20px;
+ 
+}
+.events-table-register {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
 
+.events-table-register thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.events-table-register th, .events-table-register td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+
+
+.events-table-register a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.events-table-register .delete-btn {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.events-table-register .delete-btn:hover {
+    background-color: #dc3545;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 200px;
+    margin-left: auto;
+ margin-right: auto;
+    
+}
+.title-dash{
+    font-size: 30px;
+}
+.table-dash{
+    background-color: #00d3c8;
+    height: 60px;
 }
 
 #image-quiki{
@@ -79,6 +126,7 @@
     border: solid white 2px;
     border-radius: 20px;
     background-color: rgb(56, 56, 56);
+    margin-top: 100px;
 }
 
 #title-posts{
@@ -141,11 +189,12 @@ display: inline-block;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    width: 390px;
-    height: 800px;
+    width: 490px;
+    height: 1000px;
     margin-left: 500px;
     border-radius: 5px;
     margin: 50px auto 100px auto;
+   
     
 }
 
@@ -154,6 +203,7 @@ display: inline-block;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 10px;
 }
 
 #Create-event-title{

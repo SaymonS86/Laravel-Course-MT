@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="conteudo">
+        <input type="text" id="search" name="search" class="form-control" placeholder="pesquisa">
         <img src="img/image.png" alt="" id="image-quiki">
         <form action="/" method="GET">
-        <input type="text" id="search" name="search" class="form-control" placeholder="pesquisa">
         </form>
         <div class="eventos-criados"></div>
         <div id="posts">

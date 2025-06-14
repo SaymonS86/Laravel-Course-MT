@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div class="flex flex-col items-center justify-center h-screen gap-y-32">
+    <div class="dashboard">
         <div class="title text-center">
-            <h1 class="text-8xl font-bold py-10">Dashboard</h1>
+            <h1 class="title-dash">Dashboard</h1>
         </div>
 
         <div class="content py-10">
@@ -14,11 +14,11 @@
                 <div class="overflow-x-auto">
                     <table class="mx-auto border-collapse border border-gray-300">
                         <thead>
-                            <tr class="bg-gray-200">
-                                <th scope="col" class="p-4 border border-gray-300">#</th>
-                                <th scope="col" class="p-4 border border-gray-300">Nome</th>
-                                <th scope="col" class="p-4 border border-gray-300">Participantes</th>
-                                <th scope="col" class="p-4 border border-gray-300">Ações</th>
+                            <tr class="bg-blue-200">
+                                <th scope="col" class="table-dash">#</th>
+                                <th scope="col" class="table-dash">Nome</th>
+                                <th scope="col" class="table-dash">Participantes</th>
+                                <th scope="col" class="table-dash">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit" class="btn btn-danger delete-btn bg-red-500 text-white px-4 py-2 rounded">
-                                                <ion-icon name="trash-outline"></ion-icon> Deletar
+                                                <ion-icon name="trash-outline">Deletar</ion-icon> 
                                             </button>
                                         </form>
                                     </td>
@@ -55,9 +55,9 @@
                     Eventos que estou participando
                 </h1>
             </div>
-            <div class="content">
+            <div class="content-table">
             @if ( count($eventsAsParticipants) > 0)
-            <table>
+            <table class="events-table-register">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -73,8 +73,14 @@
                             <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
                             <td>{{ count($event->users) }}</td>
                             <td>
-                                <a href="#">Sair do evento</a>
-                            </td>
+                            <form action="{{route('event.leave',['id' => $event->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger delete-btn bg-red-500 text-white px-4 py-2 rounded">
+                                    <ion-icon name="trash-outline"> Sair </ion-icon>
+                                </button>
+                            </form>
+                        </td>
                         </tr>
                     @endforeach
                 </tbody>

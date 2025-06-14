@@ -32,25 +32,25 @@
                 <a href="/" class="navbar-brand">
                     <img src="/img/logoS.png" alt="home-icon">
                 </a>
-                <h1 id="Welcome">Bem vindo a QuikiMoveis</h1>
+                <h1 id="Welcome">Bem vindo a QuikiEventos</h1>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link">Home</a>
+                        <a href="{{ route('home') }}" class="nav-link">Página Principal</a>
                     </li>
                     @auth
                         <li class="nav-item">
-                            <a href="{{ route('events') }}" class="nav-link">Create Events</a>
+                            <a href="{{ route('events') }}" class="nav-link">Criar Eventos</a>
                         </li>
 
                            <li class="nav-item">
-                            <a href="{{ route('user.dashboard') }}" class="nav-link">Dashboard</a>
+                            <a href="{{ route('user.dashboard') }}" class="nav-link">Eventos</a>
                         </li>
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                             @csrf
                                 <a href="/logout" class="nav-link"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                Exit
+                                Sair
                                 </a>
                             </form>
                         </li>
